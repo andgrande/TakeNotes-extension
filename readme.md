@@ -1,8 +1,10 @@
-- Layout
+- [x] Layout
 
-- Mensagem de submetida
-- Reseter ao submeter
-- Botao de reset
+- [x] Mensagem de submetida
+- [x] Reseter ao submeter
+- [x] Botao de reset
 
-- Aplicar no Safari
-- Publicar nas lojas
+- [0] Aplicar no Safari
+- [] Publicar nas lojas
+
+- [-] Criar página
