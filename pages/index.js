@@ -75,7 +75,10 @@ const IndexPage = () => {
   }
 
   const handleRefeshFields = () => {
-    document.getElementById("note-quote").value = "";
+    const element = document.getElementById("note-quote");
+    element.value = "";
+    element.focus();
+
     setRefreshCount(state => state + 1);
   }
 
