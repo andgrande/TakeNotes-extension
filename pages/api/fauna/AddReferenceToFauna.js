@@ -14,7 +14,6 @@ export const AddReferenceToFauna = async (inputValues) => {
         name
       }
     `;
-    console.log("foi")
     await client.query(document_query);
   } catch (error) {
     console.log(error)

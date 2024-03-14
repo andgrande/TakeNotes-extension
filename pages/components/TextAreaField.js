@@ -2,7 +2,7 @@ export default function TextAreaField ({nameTag, placeholderTag, rowsTag, value}
   
   return (
     <div className='relative'>
-      <textarea rows={rowsTag} name={nameTag} id={nameTag} placeholder={placeholderTag} value={value} 
+      <textarea rows={rowsTag} name={nameTag} id={nameTag} placeholder={placeholderTag} defaultValue={value} 
         className="peer
         w-full px-2 pt-4 pb-1 z-0
         border border-pale-800 rounded-md

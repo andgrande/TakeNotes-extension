@@ -5,7 +5,7 @@ import InputField from './components/InputField';
 import TextAreaField from './components/TextAreaField';
 // import { GetDBAndCreateIdx } from './api/indexedDB/GetDBAndCreateIdx';
 
-import { TbRefresh, TbSearch } from "react-icons/tb";
+import { TbRefresh, TbSearch, TbTrash } from "react-icons/tb";
 import AcknowledgeEffect from './components/AcknowledgeEffect';
 
 const IndexPage = () => {
@@ -63,23 +63,33 @@ const IndexPage = () => {
     inputValues.noteLink = document.getElementById("note-link").value;
     inputValues.notePaper = document.getElementById("note-paper").value;
 
-    if (inputValues.noteQuote && inputValues.noteTitle != '') {
+    if (inputValues.noteQuote) {
       AddReferenceToFauna(inputValues);
       // THERE SHOULD BE A CALL HERE FOR
       // INDEXED DB SAVE PAPER TITLE
       handleShowAcknowledge();
-      handleRefeshFields();
+      handleRefeshQuote();
     } else {
-      alert("Quote and Title must be populated.")
+      alert("Quote must be populated.")
     }
   }
 
-  const handleRefeshFields = () => {
+  const handleRefeshQuote = () => {
     const element = document.getElementById("note-quote");
     element.value = "";
     element.focus();
 
     setRefreshCount(state => state + 1);
+  }
+
+  const handleCleanFields = () => {
+    const formElement = document.getElementById('oForm');
+    formElement.reset();
+
+    const titleElement = document.getElementById('note-title');
+    const linkElement = document.getElementById('note-link');
+    titleElement.value = "";
+    linkElement.value = "";
   }
 
   const handleShowAcknowledge = () => {
@@ -97,9 +107,17 @@ const IndexPage = () => {
           <h1 className="text-2xl font-bold text-pale-800 w-1/2">
             Notes
           </h1>
-          <div className='flex flex-row justify-around w-1/6'>
+          
+          <div className='flex flex-row justify-around w-1/5'>
             <button
-              onClick={() => handleRefeshFields()}
+              onClick={() => handleCleanFields()}
+              className='w-1/6 self-end
+              text-lg text-pale-700'
+            >
+              <TbTrash />
+            </button>
+            <button
+              onClick={() => handleRefeshQuote()}
               className='w-1/6 self-end
               text-lg text-pale-700'
             >

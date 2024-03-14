@@ -1,8 +1,15 @@
+import { useState } from "react"
+
 export default function InputField ({typeTag, nameTag, placeholderTag, value}) {
-  
+  // const [ tempValue, setTempValue ] = useState(value);
+
+  // const handleChangeValue = (event) => {
+  //   setTempValue(event)
+  // }
+
   return (
     <div className='relative mt-4"'>
-      <input name={nameTag} id={nameTag} type={typeTag} placeholder={placeholderTag} value={value} 
+      <input name={nameTag} id={nameTag} type={typeTag} placeholder={placeholderTag} defaultValue={value}  
         className="peer
         w-full h-14 px-2 pt-4
         border border-pale-800 rounded-md
